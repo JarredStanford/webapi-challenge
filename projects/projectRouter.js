@@ -23,9 +23,12 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const project = await Projects.get(req.params.id);
-        if (project.id > 0) {
+        console.log(project)
+        if (project !== null) {
             res.status(200).json(project)
-        }
+        } else res.status(400).json({
+            message: "This ID does not exist."
+        })
     } catch (err) {
         res.status(500).json({
             message: "The project information could not be found (This project id may not exist)."
@@ -55,9 +58,9 @@ router.post('/', validateProject, async (req, res) => {
         }
         const project = await Projects.insert(newProject)
         res.status(200).json(project)
-    } catch (err) {
-        res.status(500).json({
-            message: "There was an error creating your post."
+    } catch {
+        res.status(400).json({
+            message: "There was an error creating the post."
         })
     }
 })
@@ -79,7 +82,7 @@ router.delete('/:id', validateProjectID, async (req, res) => {
 })
 
 //PUT update a project
-router.put('/:id', validateProjectID, async (req, res) => {
+router.put('/:id', validateProject, validateProjectID, async (req, res) => {
     try {
         const updatedProject = {
             name: req.body.name,
@@ -100,9 +103,14 @@ router.put('/:id', validateProjectID, async (req, res) => {
 async function validateProjectID(req, res, next) {
     try {
         const project = await Projects.get(req.params.id)
-        if (project.id == req.params.id) {
+        console.log(project)
+        if (project !== null) {
             req.project = project.id
             next()
+        } else {
+            res.status(400).json({
+                message: "The ID does not exist in our database."
+            })
         }
     } catch (err) {
         res.status(500).json({

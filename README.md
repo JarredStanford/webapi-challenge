@@ -27,7 +27,10 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 - [ ] Mention two parts of Express that you learned about this week.
 
   Two parts of Express I did not know about before this week:
-  (I didn't know anything about express before this week.) 1. Extremely lightweight but easy to add more function through middleware (extensible) 2. Express is just simplifying things we can already do in Node with many less lines/repetition.
+  (I didn't know anything about express before this week.)
+
+  1. Extremely lightweight but easy to add more function through middleware (extensible)
+  2. Express is just simplifying things we can already do in Node with many less lines/repetition.
 
 - [ ] Describe Middleware?
 
