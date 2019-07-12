@@ -26,24 +26,44 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+  Two parts of Express I did not know about before this week:
+  (I didn't know anything about express before this week.)
+
+  1. Extremely lightweight but easy to add more function through middleware (extensible)
+  2. Express is just simplifying things we can already do in Node with many less lines/repetition.
+
 - [ ] Describe Middleware?
+
+  A function or set of functions that execute in the order they are introduced into the code. There are three types of express middleware:
+
+  1. Built-in (prepackaged with express and just needs to be called in the code, i.e. express.json.)
+  2. Third Party (modules that we install to help express, i.e helmet.)
+  3. Custom (functions written by the developer, i.e validation functions for requests or logger.)
 
 - [ ] Describe a Resource?
 
+  A resource is the database our app uses to function. In this project both actions and projects are resources. Each resource should have it's own URL and all interaction with it is done through that URL. Resources can have multiple endpoints.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+  The API returns a server status depending on the success or failure of the request. A server can send back a 200 status that confirms success. You can also include a message with your 200. A server can also use a 204 to confirm success but you cannot include a message with it.
+
+  A 404 error will tell the user that the server could not be contacted successfully. A 500 error can return an error message as well as confirming failure.
+
 - [ ] How can we partition our application into sub-applications?
+
+  We partition our application into sub-applications using routes similar to React. We tell the API to run different sub-apps based on the route used in the endpoint. In this project we use /api/projects and /api/actions to split our app into project and action subapps.
 
 ## Project Setup
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your _Project Manager_ as collaborator on Github.
-- [ ] Clone your forked version of the Repository.
-- [ ] Create a new Branch on the clone: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on this Branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [x] Create a forked copy of this project.
+- [x] Add your _Project Manager_ as collaborator on Github.
+- [x] Clone your forked version of the Repository.
+- [x] Create a new Branch on the clone: git checkout -b `<firstName-lastName>`.
+- [x] Implement the project on this Branch, committing changes regularly.
+- [x] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
@@ -68,13 +88,13 @@ The `projectModel.js` helper includes an extra method called `getProjectActions(
 
 ## Minimum Viable Product
 
-- [ ] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
-- [ ] Configure an _npm script_ named _"start"_ that will execute your code using _node_.
+- [x] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
+- [x] Configure an _npm script_ named _"start"_ that will execute your code using _node_.
 
 Design and build the necessary endpoints to:
 
-- [ ] Perform CRUD operations on _projects_ and _actions_. When adding an action, make sure the `project_id` provided belongs to an existing `project`. If you try to add an action with an `id` of 3 and there is no project with that `id` the database will return an error.
-- [ ] Retrieve the list of actions for a project.
+- [x] Perform CRUD operations on _projects_ and _actions_. When adding an action, make sure the `project_id` provided belongs to an existing `project`. If you try to add an action with an `id` of 3 and there is no project with that `id` the database will return an error.
+- [x] Retrieve the list of actions for a project.
 
 ### Database Schemas
 
